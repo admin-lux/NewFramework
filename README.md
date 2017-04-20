@@ -7,4 +7,4 @@ Android项目框架
 5.解析json使用fastjson；
 6.事件总线使用EventBus；
 
-这是在dev分支
+这个项目也许会持续更新。。。
