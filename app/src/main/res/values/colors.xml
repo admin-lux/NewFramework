@@ -3,4 +3,15 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="text_color_primary">#353535</color>
+    <color name="text_color_secondary">#999999</color>
+    <color name="text_color_tertiary">#d7d7d7</color>
+    <color name="text_color_primary_inverse">@android:color/white</color>
+    <color name="text_color_secondary_inverse">@android:color/white</color>
+    <color name="colorBlue">#0083cb</color>
+    <color name="press">#e8e8e8</color>
+    <color name="text_line_color">#dfdfdd</color>
+    <color name="app_bg">#f0f0f6</color>
+
 </resources>

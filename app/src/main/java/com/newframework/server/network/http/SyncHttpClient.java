@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.newframework.BuildConfig;
-import com.newframework.server.utils.NLog;
+import com.newframework.utils.NLog;
 
 import org.apache.http.Header;
 import org.apache.http.HeaderElement;

@@ -3,7 +3,7 @@ package com.newframework.server.network.http;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.newframework.server.utils.MD5;
+import com.newframework.utils.MD5;
 
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;

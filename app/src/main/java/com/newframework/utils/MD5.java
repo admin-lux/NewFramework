@@ -1,4 +1,4 @@
-package com.newframework.server.utils;
+package com.newframework.utils;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

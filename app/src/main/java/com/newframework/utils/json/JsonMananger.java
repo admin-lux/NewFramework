@@ -3,7 +3,7 @@
     Copyright (c) 2014 ShengDao Tech Company Limited
  */
 
-package com.newframework.server.utils.json;
+package com.newframework.utils.json;
 
 import android.util.Log;
 

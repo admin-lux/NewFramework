@@ -6,5 +6,6 @@ Android项目框架
 4.数据库使用GreenDao,解决了数据库版本更新问题；
 5.解析json使用fastjson；
 6.事件总线使用EventBus；
+7.加入一些常用的父类；
 
 这个项目也许会持续更新。。。
