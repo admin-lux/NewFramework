@@ -1,4 +1,4 @@
-package com.newframework.ui.activity;
+package com.newframework.ui.activity.base;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -23,42 +23,46 @@ import android.widget.ViewFlipper;
 
 import com.newframework.R;
 
+import butterknife.BindDrawable;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
 public abstract class BaseActivity extends FragmentActivity {
     private InnerReceiver mReceiver;// 接收者
 
     private IntentFilter mFilter;// 过滤器
     protected Context mContext;
-    private ViewFlipper mContentView;
-    protected RelativeLayout layout_head;
-    protected Button btn_left;
-    protected TextView btn_right;
-    protected TextView tv_title;
-    protected Drawable btn_back;
-    protected Button btn_rightt;
-    protected LinearLayout base_layout;
-    private LinearLayout mConversationTop;
-    private RelativeLayout mRlMakePrescr;
-    private RelativeLayout mRlMakePressions;
-    private RelativeLayout mRlMakeInquire;
-    private View mConversationLine;
+    @BindView(R.id.layout_container)
+     ViewFlipper mContentView;
+    @BindView(R.id.layout_head)
+     RelativeLayout layout_head;
+    @BindView(R.id.btn_left)
+     Button btn_left;
+    @BindView(R.id.btn_right)
+     TextView btn_right;
+    @BindView(R.id.tv_title)
+     TextView tv_title;
+    @BindDrawable(R.mipmap.actionbar_back)
+     Drawable btn_back;
+    @BindView(R.id.btn_rightt)
+     Button btn_rightt;
+    @BindView(R.id.base_layout)
+     LinearLayout base_layout;
+
+    private Unbinder unbinder;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         super.setContentView(R.layout.layout_base);
+        unbinder = ButterKnife.bind(this);
+
         setVolumeControlStream(AudioManager.STREAM_MUSIC);// 使得音量键控制媒体声音
         mContext = this;
 
         // 初始化公共头部
-        mContentView = (ViewFlipper) super.findViewById(R.id.layout_container);
-        layout_head = (RelativeLayout) super.findViewById(R.id.layout_head);
-        btn_left = (Button) super.findViewById(R.id.btn_left);
-        btn_right = (TextView) super.findViewById(R.id.btn_right);
-        btn_rightt = (Button) super.findViewById(R.id.btn_rightt);
-        tv_title = (TextView) super.findViewById(R.id.tv_title);
-        base_layout = (LinearLayout) super.findViewById(R.id.base_layout);
-        btn_back = getResources().getDrawable(R.mipmap.actionbar_back);
         btn_back.setBounds(0, 0, btn_back.getMinimumWidth(),
                 btn_back.getMinimumHeight());
         setImmersionStatus();
@@ -112,15 +116,6 @@ public abstract class BaseActivity extends FragmentActivity {
      */
     public void setRightVisibility(int visibility) {
         btn_right.setVisibility(visibility);
-    }
-
-    /**
-     * 设置会话头部是否可见
-     *
-     * @param visibility
-     */
-    public void setTopVisibility(int visibility) {
-        mConversationTop.setVisibility(visibility);
     }
 
     /**
@@ -190,38 +185,6 @@ public abstract class BaseActivity extends FragmentActivity {
         this.mReceiver = mReceiver;
     }
 
-    public LinearLayout getmConversationTop() {
-        return mConversationTop;
-    }
-
-    public void setmConversationTop(LinearLayout mConversationTop) {
-        this.mConversationTop = mConversationTop;
-    }
-
-    public RelativeLayout getmRlMakePrescr() {
-        return mRlMakePrescr;
-    }
-
-    public void setmRlMakePrescr(RelativeLayout mRlMakePrescr) {
-        this.mRlMakePrescr = mRlMakePrescr;
-    }
-
-    public RelativeLayout getmRlMakeInquire() {
-        return mRlMakeInquire;
-    }
-
-    public void setmRlMakeInquire(RelativeLayout mRlMakeInquire) {
-        this.mRlMakeInquire = mRlMakeInquire;
-    }
-
-    public RelativeLayout getmRlMakePressions() {
-        return mRlMakePressions;
-    }
-
-    public void setmRlMakePressions(RelativeLayout mRlMakePressions) {
-        this.mRlMakePressions = mRlMakePressions;
-    }
-
     public void setBtn_left(Button btn_left) {
         this.btn_left = btn_left;
     }
@@ -250,19 +213,11 @@ public abstract class BaseActivity extends FragmentActivity {
         this.btn_back = btn_back;
     }
 
-
-    public View getmConversationLine() {
-        return mConversationLine;
-    }
-
-    public void setmConversationLine(View mConversationLine) {
-        this.mConversationLine = mConversationLine;
-    }
-
     @Override
     protected void onDestroy() {
         unRegister();
         super.onDestroy();
+        unbinder.unbind();
     }
 
     @Override

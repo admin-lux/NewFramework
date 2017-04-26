@@ -1,4 +1,4 @@
-package com.newframework.ui.activity;
+package com.newframework.ui.activity.base;
 
 import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
