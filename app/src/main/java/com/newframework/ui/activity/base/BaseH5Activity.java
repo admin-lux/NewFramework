@@ -16,6 +16,8 @@ import com.newframework.R;
 import com.newframework.ui.widget.LoadDialog;
 import com.newframework.ui.widget.NoAdWebViewClient;
 
+import butterknife.BindView;
+
 /**
  * h5父类
  *
@@ -31,7 +33,9 @@ public abstract class BaseH5Activity extends BaseActivity {
      */
     public static final String TITLE = "title";
 
+    @BindView(R.id.base_h5_webview)
     protected WebView mWebView;
+    @BindView(R.id.abs_h5_bottom_container)
     protected LinearLayout mContainLl;
 
     public String mWebTitle;//webview的标题
@@ -52,9 +56,6 @@ public abstract class BaseH5Activity extends BaseActivity {
     }
 
     public void initWebView() {
-        mWebView = (WebView) findViewById(R.id.base_h5_webview);
-        mContainLl = (LinearLayout) findViewById(R.id.abs_h5_bottom_container);
-
         mWebView.getSettings().setJavaScriptEnabled(true);
         mWebView.getSettings().setPluginState(WebSettings.PluginState.ON);
         mWebView.getSettings().setDomStorageEnabled(true);
