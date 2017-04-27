@@ -86,7 +86,7 @@ import java.util.List;
  */
 public class BaseAction {
     //调试地址
-    public static String DOMAIN = "http://172.16.1.131:8080/mockjsdata/1/";
+    public static String DOMAIN = "http://rapapi.org/mockjsdata/13149/";
 
     public final String CONTENT_TYPE = "application/json";
     public final String ENCODING = "utf-8";

@@ -34,21 +34,21 @@ public abstract class BaseActivity extends FragmentActivity {
     private IntentFilter mFilter;// 过滤器
     protected Context mContext;
     @BindView(R.id.layout_container)
-     ViewFlipper mContentView;
+    ViewFlipper mContentView;
     @BindView(R.id.layout_head)
-     RelativeLayout layout_head;
+    RelativeLayout layout_head;
     @BindView(R.id.btn_left)
-     Button btn_left;
+    Button btn_left;
     @BindView(R.id.btn_right)
-     TextView btn_right;
+    TextView btn_right;
     @BindView(R.id.tv_title)
-     TextView tv_title;
+    TextView tv_title;
     @BindDrawable(R.mipmap.actionbar_back)
-     Drawable btn_back;
+    Drawable btn_back;
     @BindView(R.id.btn_rightt)
-     Button btn_rightt;
+    Button btn_rightt;
     @BindView(R.id.base_layout)
-     LinearLayout base_layout;
+    LinearLayout base_layout;
 
     private Unbinder unbinder;
 
@@ -173,6 +173,7 @@ public abstract class BaseActivity extends FragmentActivity {
      */
     public void onRighttClick(View v) {
     }
+
     public Button getBtn_left() {
         return btn_left;
     }

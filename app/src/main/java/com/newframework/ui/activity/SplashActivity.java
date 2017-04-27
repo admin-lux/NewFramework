@@ -3,6 +3,7 @@ package com.newframework.ui.activity;
 import android.Manifest;
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -99,21 +100,21 @@ public class SplashActivity extends BaseActivity {
     }
 
     private void getPermission() {
-//        if (!isNetworkConnected(context)) {
-//            NToast.shortToast(context, getString(R.string.network_not_available));
-//            goToLogin();
-//            return;
-//        }
-//        handler.postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                goToLogin();
-//            }
-//        }, 800);
+        if (!isNetworkConnected(context)) {
+            NToast.shortToast(context, getString(R.string.network_not_available));
+            goToLogin();
+            return;
+        }
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                goToLogin();
+            }
+        }, 800);
     }
 
     private void goToLogin() {
-//        startActivity(new Intent(context, LoginActivity.class));
+        startActivity(new Intent(context, LoginActivity.class));
         finish();
     }
 
