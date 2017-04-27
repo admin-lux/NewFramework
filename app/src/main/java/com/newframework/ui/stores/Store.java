@@ -28,5 +28,5 @@ public abstract class Store {
     public abstract StoreChangeEvent changeEvent();
     public abstract void onAction(Action action);
 
-    public class StoreChangeEvent {}
+    public interface StoreChangeEvent {}
 }

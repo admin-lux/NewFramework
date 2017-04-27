@@ -10,6 +10,7 @@ import com.newframework.server.network.http.HttpException;
 import com.newframework.server.response.LoginResponse;
 import com.newframework.ui.dispatcher.Dispatcher;
 import com.newframework.ui.model.Login;
+import com.newframework.ui.model.Todo;
 import com.newframework.utils.AMUtils;
 
 import java.io.UnsupportedEncodingException;
@@ -98,4 +99,43 @@ public class ActionsCreator {
         });
     }
 
+
+    //todoactivity
+    public void create(String text) {
+        dispatcher.dispatch(TodoActions.TODO_CREATE,
+                TodoActions.KEY_TEXT, text
+        );
+
+    }
+
+    public void destroy(long id) {
+        dispatcher.dispatch(
+                TodoActions.TODO_DESTROY,
+                TodoActions.KEY_ID, id
+        );
+    }
+
+    public void undoDestroy() {
+        dispatcher.dispatch(
+                TodoActions.TODO_UNDO_DESTROY
+        );
+    }
+
+    public void toggleComplete(Todo todo) {
+        long id = todo.getId();
+        String actionType = todo.isComplete() ? TodoActions.TODO_UNDO_COMPLETE : TodoActions.TODO_COMPLETE;
+
+        dispatcher.dispatch(
+                actionType,
+                TodoActions.KEY_ID, id
+        );
+    }
+
+    public void toggleCompleteAll() {
+        dispatcher.dispatch(TodoActions.TODO_TOGGLE_COMPLETE_ALL);
+    }
+
+    public void destroyCompleted() {
+        dispatcher.dispatch(TodoActions.TODO_DESTROY_COMPLETED);
+    }
 }

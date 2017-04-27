@@ -31,7 +31,7 @@ public class LoginStore extends Store {
         editor = sp.edit();
     }
 
-    public class LoginStoreChangeEvent extends StoreChangeEvent {
+    public class LoginStoreChangeEvent implements StoreChangeEvent {
     }
 
     @Override
