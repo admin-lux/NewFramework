@@ -3,7 +3,7 @@
     Copyright (c) 2015 ShengDao Tech Company Limited
 */
 
-package com.newframework.server.broadcast;
+package com.newframework.utils.broadcast;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -12,7 +12,7 @@ import android.content.IntentFilter;
 
 import com.newframework.server.network.async.AsyncTaskManager;
 import com.newframework.server.network.http.HttpException;
-import com.newframework.server.utils.json.JsonMananger;
+import com.newframework.utils.json.JsonMananger;
 
 import java.util.HashMap;
 import java.util.Map;
